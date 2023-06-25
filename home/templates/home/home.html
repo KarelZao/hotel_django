@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+  <section class="probootstrap-section">
+    <div class="container">
+      <div class="row heading">
+        <h2 class="mt100 mb50 text-center">Naše hotely</h2>
+      </div>
+
+      <div class="row probootstrap-gutter10">
+        {% for category_list in category_list_home %}
+           <div class="col-md-6 col-sm-6">
+            <a href="#" class="probootstrap-hover-overlay">
+            <img src="media/{{category_list.image}}" class="img-responsive">
+            <div class="probootstrap-text-overlay">
+              <h3>{{category_list.category_name}}</h3>
+              <p>{{category_list.property_count}} Properties</p>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </section>
+  <!-- END: section -->
+
+
+  <section class="probootstrap-section probootstrap-section-lighter">
+    <div class="container">
+      <div class="row heading">
+        <h2 class="mt0 mb50 text-center">Akční nabídka</h2>
+      </div>
+      <div class="row">
+        {% for property in property_list_home %}
+            <div class="col-md-4 col-sm-6">
+          <div class="probootstrap-card probootstrap-listing">
+            <div class="probootstrap-card-media">
+              <img src="{{property.image.url}}" class="img-responsive" alt="Free HTML5 Template by uicookies.com">
+            </div>
+            <div class="probootstrap-card-text">
+              <h2 class="probootstrap-card-heading"><a href="#">{{property}}</a></h2>
+              <div class="probootstrap-listing-location">
+                <i class="icon-location2"></i> <span>{{property.location}}</span>
+              </div>
+              <!--<div class="probootstrap-listing-category for-sale"><span>for {{property.property_type}}</span></div>-->
+              <div class="probootstrap-listing-price"><strong>{{property.price}}</strong> / za osobu a noc</div>
+            </div>
+            <div class="probootstrap-card-extra">
+              <ul>
+                <li>
+                  Plocha
+                  <span>{{property.area}}</span>
+                </li>
+                <li>
+                  Lůžka
+                  <span>{{property.beds_number}}</span>
+                </li>
+                <li>
+                  Koupelny
+                  <span>{{property.baths_number}}</span>
+                </li>
+                <li>
+                  Parkování
+                  <span>{{property.garages_number}}</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- END listing -->
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="probootstrap-section probootstrap-section-lighter">
+    <div class="container">
+      <div class="row heading">
+        <h2 class="mt0 mb50 text-center">Naši manažeři</h2>
+      </div>
+      <div class="row">
+        {% for agent in agents_list_home %}
+           <div class="col-md-3">
+          <div class="probootstrap-card probootstrap-person text-left">
+            <div class="probootstrap-card-media">
+              <img src="{{agent.image.url}}" class="img-responsive" alt="Free HTML5 Template by uicookies.com">
+            </div>
+            <div class="probootstrap-card-text">
+              <h2 class="probootstrap-card-heading mb0">{{agent.name}}</h2>
+              <p><small>{{agent.title}}</small></p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </section>
+
+
+{% endblock body %}

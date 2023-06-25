@@ -1,0 +1,61 @@
+{% load static %}
+
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hotely Papaláš</title>
+    <meta name="description" content="Free Bootstrap Theme">
+    <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles-merged.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+
+    <!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.min.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+  <!-- START: header -->
+  
+  <div class="probootstrap-loader"></div>
+
+  <header role="banner" class="probootstrap-header">
+    <div class="container">
+        <a href="index.html" class="probootstrap-logo">Hotely Papaláš</span></a>
+        
+        <a href="#" class="probootstrap-burger-menu visible-xs" ><i>Menu</i></a>
+        <div class="mobile-menu-overlay"></div>
+
+        <nav role="navigation" class="probootstrap-nav hidden-xs">
+          <ul class="probootstrap-main-nav">
+            <li {% if category_list_home %} class="active"{% endif %}><a href="/">Domů</a></li>
+            <li {% if property_list %} class="active"{% endif %}><a href="{% url 'property:property_list' %}">Nabídka</a></li>
+            <li {% if agent_list %} class="active"{% endif %}><a href="{% url 'agents:agents_list' %}">Management</a></li>
+            <li {% if about %} class="active"{% endif %}><a href="{% url 'about:aboutus' %}">O nás</a></li>
+            <li {% if contactdetails %} class="active"{% endif %}><a href="{% url 'contact:send_mail' %}">Kontakt</a></li>
+          </ul>
+        </nav>
+    </div>
+  </header>
+
+ {% block body %} 
+ 
+ {% endblock body %}
+
+  <div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-chevron-thin-up"></i></a>
+  </div>
+  
+
+  <script src="{% static 'js/scripts.min.js' %}"></script>
+  <script src="{% static 'js/main.min.js' %}"></script>
+  <script src="{% static 'js/custom.js' %}"></script>
+
+  </body>
+</html>
